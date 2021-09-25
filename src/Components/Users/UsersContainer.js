@@ -32,7 +32,7 @@ class UsersContainer extends React.Component {
 
     render() {
         return <>
-            {this.props.isFetching ? <Loader/> : null}
+        {/*    {this.props.isFetching ? <Loader/> : null}*/}
             <Users totalUsersCount={this.props.totalUsersCount}
                    pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage}
@@ -42,6 +42,7 @@ class UsersContainer extends React.Component {
                    onPageChanged={this.onPageChanged}
                    toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
                    isDisabled={this.props.isDisabled}
+                   isFetching={this.props.isFetching}
 
             />
         </>

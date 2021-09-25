@@ -1,7 +1,9 @@
-.selectedPage {
+.pageNumber.selectedPage {
     font-weight: 900 ;
     border: solid gray 2px;
     padding: 2px;
 }
 .paginator {
+    margin: 10px;
+    cursor: pointer;
 }

@@ -1,7 +1,7 @@
-import {Field, reduxForm} from "redux-form";
-import React from "react";
-import {maxLenght, required} from "../../Utils/Validators";
-import {Input} from "../Common/FormControl/InputControl";
+import {Field, reduxForm} from "redux-form"
+import React from "react"
+import {maxLenght, required} from "../../Utils/Validators"
+import {Input} from "../Common/FormControl/InputControl"
 import classes  from '../Common/FormControl/FormControl.module.css'
 
 const maxLength30 = maxLenght(30)
@@ -35,10 +35,15 @@ const LoginForm = (props) => {
             <div>
                 <button>Login</button>
             </div>
+            {props.captchaUrl && <img src={props.captchaUrl}/>}
+            {props.captchaUrl &&  <Field placeholder={'symbols from image'}
+                                         name={'captcha'}
+                                         component={Input}
+                                         validate={[required]}/>
+            }
         </form>
     )
 }
-
 
 export const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 

@@ -1,9 +1,9 @@
 import {profileApi, usersApi} from "../../Api/Api";
+import {stopSubmit} from "redux-form";
 
 const ADD_POST = 'profileReducer/ADD-POST'
-const UPDATE_NEW_POST = 'profileReducer/UPDATE-NEW-POST'
 const SET_USERS_PROFILE = 'profileReducer/SET_USER_PROFILE'
-
+const SAVE_PHOTO = 'profileReducer/SAVE_PHOTO '
 const GET_USER_STATUS = 'profileReducer/GET_USER_STATUS'
 const UPDATE_USER_STATUS = 'profileReducer/UPDATE_STATUS'
 
@@ -11,21 +11,16 @@ export const getUserStatus = (status) => {
     return {type: GET_USER_STATUS, status}
 }
 
-export const updateUserStatus = (status) => {
-    return {type: UPDATE_USER_STATUS, status}
-}
-
-
-
-
 export const addPostAction = (newPostText) => {
     return {type: ADD_POST, text: newPostText}
 }
+
 export const setUsersProfile = (profile) => {
     return {type: SET_USERS_PROFILE, profile}
 }
-export const updateNewPostAction = (text) => {
-    return {type: UPDATE_NEW_POST, newText: text}
+
+export const saveUserPhoto = (photos) => {
+    return {type: SAVE_PHOTO, photos}
 }
 
 
@@ -38,25 +33,41 @@ export const getProfileThunkCreator = (userId) => {
     }
 }
 export const getStatusThunkCreator = (userId) => async (dispatch) => {
-      let data = await profileApi.getProfileStatus(userId)
-                dispatch(getUserStatus(data))
+    let data = await profileApi.getProfileStatus(userId)
+    dispatch(getUserStatus(data))
 }
 
-export const updateStatusThunkCreator = (status) => {
-    return (dispatch) => {
-        profileApi.putUserStatus(status)
-            .then(data => {
-                if(data.resultCode === 0)
-                dispatch(getUserStatus(status))
-            })
+export const updateStatusThunkCreator = (status) => async (dispatch) => {
+    let data = await profileApi.putUserStatus(status)
+    if (data.resultCode === 0)
+        dispatch(getUserStatus(status))
+}
+
+export const savePhotoThunkCreator = (file) => async (dispatch) => {
+    let response = await profileApi.putUserPhoto(file)
+    if (response.resultCode === 0) {
+        dispatch(saveUserPhoto(response.data.photos))
     }
 }
 
+export const saveDescriptionThunkCreator = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.userId
+    let response = await profileApi.saveProfile(profile)
+    if (response.data.resultCode === 0) {
+        dispatch(getProfileThunkCreator(userId))
+    } else {
+        dispatch(stopSubmit('description', {_error: response.data.messages[0]}))
+        return Promise.reject(response.data.messages[0])
+    }
+}
 
 let initialState = {
     dataPosts: [
-        {id: 1, message: 'hi', likeCaunt: 20},
-        {id: 2, message: 'Hello World', likeCaunt: 44}
+        {
+            id: 1,
+            message: "Hey World",
+            likeCount: 2
+        }
     ],
     newPostText: '',
     profile: null,
@@ -67,7 +78,7 @@ const profileReduser = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
             let newPost = {
-                id: 3,
+                id: 1,
                 message: action.text,
                 likeCount: 0
             }
@@ -77,10 +88,10 @@ const profileReduser = (state = initialState, action) => {
             }
         }
         case SET_USERS_PROFILE:
-           return {
-               ...state,
-               profile: action.profile
-           }
+            return {
+                ...state,
+                profile: action.profile
+            }
         case GET_USER_STATUS:
             return {
                 ...state,
@@ -90,6 +101,11 @@ const profileReduser = (state = initialState, action) => {
             return {
                 ...state,
                 status: action.status
+            }
+        case SAVE_PHOTO:
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photos}
             }
         default:
             return state

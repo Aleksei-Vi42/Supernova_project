@@ -13,4 +13,8 @@
     height: 100px;
     width: 100px;
 }
+.loader {
+    float: right;
+    padding-right: 600px;
+}
 

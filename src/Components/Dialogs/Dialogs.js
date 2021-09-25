@@ -11,9 +11,9 @@ const maxLength100 = maxLenght(100)
 
 const Dialogs = (props) => {
 
-    let dialogs = props.dialogPage.dataMessages.map(d => <Message text={d.message} id={d.id}/>)
+    let dialogs = props.dialogPage.dataMessages.map(d => <Message key={d.id} text={d.message} id={d.id}/>)
 
-    let nameUsers = props.dialogPage.dataUsers.map(user => <DialogItem name={user.name} id={user.id}/>)
+    let nameUsers = props.dialogPage.dataUsers.map(user => <DialogItem key={user.id} name={user.name} id={user.id}/>)
 
     let addNewMessage = (value) => {
         props.addMessage(value.newMessageText)

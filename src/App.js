@@ -17,6 +17,7 @@ import {authMeThunkCreator} from "./Components/Redux/AuthReducer"
 
 
 class App extends React.Component {
+
     componentDidMount() {
         this.props.initializingApp()
     }

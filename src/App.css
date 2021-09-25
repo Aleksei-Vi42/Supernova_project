@@ -11,7 +11,8 @@
 
 .app-wrapper-content {
   grid-area: c;
-  background-color: rgb(38, 194, 142);
+  background-color: rgb(102, 153, 153);
+  opacity: .7;
 }
 .postBlock {
   padding-left: 10px;

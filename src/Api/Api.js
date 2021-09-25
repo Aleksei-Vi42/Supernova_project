@@ -1,4 +1,4 @@
-import * as axios from "axios";
+import * as axios from "axios"
 
 const instance = axios.create({
     baseURL: `https://social-network.samuraijs.com/api/1.0/`,
@@ -27,15 +27,24 @@ export const authApi = {
     getAuthMe() {
         return instance.get(`auth/me`, {}).then(response => response.data)
     },
-    loginUser(email, password, isRememberMe) {
-        return instance.post('auth/login', {email, password, isRememberMe})
+    loginUser(email, password, isRememberMe = false, captcha = null) {
+        return instance.post('auth/login', {email, password, isRememberMe, captcha})
     },
     logoutUser() {
         return instance.delete('auth/login')
     }
 }
 
+export const securityApi = {
+    getCaptcha() {
+        return instance.get(`security/get-captcha-url`)
+    }
+}
+
 export const profileApi = {
+    saveProfile(profile) {
+        return instance.put(`profile/`, profile)
+    },
     getProfile(userId) {
         return instance.get(`profile/` + userId, {}).then(response => response.data)
     },
@@ -44,6 +53,15 @@ export const profileApi = {
     },
     putUserStatus(status) {
         return instance.put('profile/status', {status: status}).then(response => response.data)
+    },
+    putUserPhoto(photoFile) {
+        let formData = new FormData()
+        formData.append('image' ,photoFile)
+        return instance.put('profile/photo', formData, {
+            headers: {
+                'Content-Type':  'multipart/form-data'
+            }
+        })
     }
 }
 

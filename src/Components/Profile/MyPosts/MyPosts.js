@@ -1,20 +1,17 @@
-import React from 'react'
-import Post from './Post/post'
-import {Field, Form, reduxForm} from "redux-form";
-import {maxLenght, required} from "../../../Utils/Validators";
-import {Textarea} from "../../Common/FormControl/TextAreaControl";
+import React from "react"
+import Post from "./Post/post"
+import {Field, Form, reduxForm} from "redux-form"
+import {maxLenght, required} from "../../../Utils/Validators"
+import {Textarea} from "../../Common/FormControl/TextAreaControl"
 
-const maxLength20 = maxLenght(20)
+const maxLength100 = maxLenght(100)
 
 const MyPosts = (props) => {
-    let postsElement = props.dataPosts.map(p => <Post likesCount={p.likeCaunt} message={p.message}/>)
-
+    let postsElement = props.dataPosts.map(p => <Post key={p.id} likesCount={p.likeCaunt} message={p.message}/>)
 
     let addNewPost = (value) => {
        props.addPost(value.newPostText)
     }
-
-
 
     return (
         <div className='content'>
@@ -35,7 +32,7 @@ const MyPostForm = (props) => {
         <Form onSubmit={props.handleSubmit}>
                     <Field component={Textarea}
                            name='newPostText'
-                            validate={[required, maxLength20,]}/>
+                            validate={[required, maxLength100,]}/>
             <div>
                 <button>add post</button>
             </div>

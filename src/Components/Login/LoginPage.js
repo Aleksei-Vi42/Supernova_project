@@ -9,7 +9,7 @@ const LoginPageContainer = (props) => {
 
 
   let  loginUser = (formData) => {
-       props.login(formData.email, formData.password, formData.isRememberMe)
+       props.login(formData.email, formData.password, formData.isRememberMe, formData.captcha)
     }
 
     if(props.isAuth) {
@@ -18,14 +18,15 @@ const LoginPageContainer = (props) => {
 
     return <div>
         <h1>LOGIN</h1>
-        <LoginReduxForm onSubmit={loginUser}/>
+        <LoginReduxForm captchaUrl={props.captchaUrl} onSubmit={loginUser}/>
     </div>
 
 }
 
 let mapStateToProps = (state) => {
     return {
-       isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        captchaUrl:state.auth.captchaUrl
     }
 }
 

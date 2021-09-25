@@ -6,7 +6,7 @@ import loader from '../../../Assets/images/Bean Eater-1s-200px.svg'
 export const Loader = () => {
  return (
      <div>
-      <img src={loader}/>
+      Loading...
      </div>
     )
 }

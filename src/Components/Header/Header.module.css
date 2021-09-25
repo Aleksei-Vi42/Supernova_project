@@ -1,7 +1,14 @@
 .header {
  grid-area: h;
- background-color: chartreuse;
+ background-color: rgb(102, 153, 153);
+ opacity: .7;
 }
 .login {
+ color: white;
  float: right;
+ cursor: pointer;
+}
+.userPhoto {
+ weight: 40px;
+ height: 40px;
 }
