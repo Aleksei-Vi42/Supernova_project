@@ -2,7 +2,7 @@
   "name": "spernova_project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Aleksei-Vi42/Supernova_project",
+  "homepage": "https://aleksei-vi42.github.io/Supernova_project_demo/",
   "dependencies": {
     "@babel/core": "^7.15.0",
     "@testing-library/jest-dom": "^5.12.0",

@@ -27,7 +27,7 @@ class App extends React.Component {
             return <Loader/>
         }
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <div className='app-wrapper'>
                     <HeaderContainer/>
                     <NavBar/>
@@ -41,7 +41,7 @@ class App extends React.Component {
                         <Route path='/users' render={() => <UsersContainer/>}/>
                     </div>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
 
         )
     }
