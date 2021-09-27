@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Supernova_project_demo/static/css/main.6fab840e.chunk.css",
-    "main.js": "/Supernova_project_demo/static/js/main.e2f7caa6.chunk.js",
-    "main.js.map": "/Supernova_project_demo/static/js/main.e2f7caa6.chunk.js.map",
-    "runtime-main.js": "/Supernova_project_demo/static/js/runtime-main.a45ae8ad.js",
-    "runtime-main.js.map": "/Supernova_project_demo/static/js/runtime-main.a45ae8ad.js.map",
-    "static/js/2.2b5984e7.chunk.js": "/Supernova_project_demo/static/js/2.2b5984e7.chunk.js",
-    "static/js/2.2b5984e7.chunk.js.map": "/Supernova_project_demo/static/js/2.2b5984e7.chunk.js.map",
-    "index.html": "/Supernova_project_demo/index.html",
-    "static/css/main.6fab840e.chunk.css.map": "/Supernova_project_demo/static/css/main.6fab840e.chunk.css.map",
-    "static/js/2.2b5984e7.chunk.js.LICENSE.txt": "/Supernova_project_demo/static/js/2.2b5984e7.chunk.js.LICENSE.txt",
-    "static/media/Bean Eater-1s-200px.67b2533e.svg": "/Supernova_project_demo/static/media/Bean Eater-1s-200px.67b2533e.svg",
-    "static/media/av2.6acf9f91.png": "/Supernova_project_demo/static/media/av2.6acf9f91.png"
+    "main.css": "/Supernova_project/static/css/main.ba33cd00.chunk.css",
+    "main.js": "/Supernova_project/static/js/main.e82447fe.chunk.js",
+    "main.js.map": "/Supernova_project/static/js/main.e82447fe.chunk.js.map",
+    "runtime-main.js": "/Supernova_project/static/js/runtime-main.7d807bbc.js",
+    "runtime-main.js.map": "/Supernova_project/static/js/runtime-main.7d807bbc.js.map",
+    "static/js/2.2b5984e7.chunk.js": "/Supernova_project/static/js/2.2b5984e7.chunk.js",
+    "static/js/2.2b5984e7.chunk.js.map": "/Supernova_project/static/js/2.2b5984e7.chunk.js.map",
+    "index.html": "/Supernova_project/index.html",
+    "static/css/main.ba33cd00.chunk.css.map": "/Supernova_project/static/css/main.ba33cd00.chunk.css.map",
+    "static/js/2.2b5984e7.chunk.js.LICENSE.txt": "/Supernova_project/static/js/2.2b5984e7.chunk.js.LICENSE.txt",
+    "static/media/Bean Eater-1s-200px.67b2533e.svg": "/Supernova_project/static/media/Bean Eater-1s-200px.67b2533e.svg",
+    "static/media/av2.6acf9f91.png": "/Supernova_project/static/media/av2.6acf9f91.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.a45ae8ad.js",
+    "static/js/runtime-main.7d807bbc.js",
     "static/js/2.2b5984e7.chunk.js",
-    "static/css/main.6fab840e.chunk.css",
-    "static/js/main.e2f7caa6.chunk.js"
+    "static/css/main.ba33cd00.chunk.css",
+    "static/js/main.e82447fe.chunk.js"
   ]
 }
