@@ -1,3 +1,7 @@
+.profileInfo {
+    display: grid;
+
+}
 .description {
     padding-left: 20px;
     padding-right: 600px;

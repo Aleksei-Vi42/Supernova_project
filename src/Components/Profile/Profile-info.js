@@ -32,11 +32,10 @@ const ProfileInfo = (props) => {
             <div>
                 {props.isOwner && <input type={'file'} onChange={mainPhotoChange}/>}
             </div>
+            <img className={classes.ava} src={props.profile.photos.large || userPhoto}/>
             {editMode ?
                 <ProfileDescriptionReduxForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/>
                 : <ProfileDescription toEditMode={toEditMode} isOwner={props.isOwner} profile={props.profile}/>}
-            <img className={classes.ava} src={props.profile.photos.large || userPhoto}/>
-
             <div className={classes.profileStatus}>
                 <b>Status:</b><ProfileStatusWithHook status={props.status} updateStatus={props.updateStatus}/>
             </div>

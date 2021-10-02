@@ -19,7 +19,7 @@ export const usersApi = {
         return instance.post(`follow/${userId}`, {}, {}).then(response => response.data)
     },
     getProfile(userId) {
-        return instance.get(`profile/` + userId, {}).then(response => response.data)
+        return instance.get(`profile/` + userId, {})
     }
 
 }
